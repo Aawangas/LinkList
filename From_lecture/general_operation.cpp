@@ -52,6 +52,16 @@ list_node * initialize_node(int i){
     return node;
 }
 
+void delete_node(list_node *& head, int position){
+    list_node * p = head;//p is a visitor
+    if (position == 0){
+        head = head-> next;
+        return;
+    }
+    for(int i = 0;i<position-1 && p ->next != nullptr;i++,p = p-> next);
+    //When if stops , i == position -1, p points to id(position-1) object.
+    p -> next = p-> next -> next;  
+}
 
 int main(){
     int array[] = {1,3,5,7,9,11,13,15};
